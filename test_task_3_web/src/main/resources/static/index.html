@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="test.js"></script>
+    <script src="js/functions.js"></script>
 
     <title>Main page</title>
 </head>
 
 <body>
-    <select id="langSelect" onchange="sendLanguage()" name="lang">
+    <select id="langSelect"  name="lang">
         <option value="en">
             <p>English (EN)</p>
         </option>
@@ -22,13 +22,14 @@
             <p>Русский (RU)</p>
         </option>
     </select>
+
     <div class="container">
         <div class="column">
             <div class="raw">
-                <p id="textLabel" style="width: 516px;">Label</p>
+                <p id="textLabel" style="width: 516px;"></p>
             </div>
             <div class="raw">
-                <button class="btn" style="width: 516px;">Button</button>
+                <button id="pressButton" class="btn" style="width: 516px;">Button</button>
             </div>
         </div>
     </div>

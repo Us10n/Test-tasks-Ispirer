@@ -18,7 +18,11 @@ public class ApplicationService {
         this.messageSource = messageSource;
     }
 
-    public String readString() {
+    public String readLabelString() {
         return messageSource.getMessage(LABEL_TEXT_KEY, null, LocaleContextHolder.getLocale());
+    }
+
+    public String readButtonString() {
+        return messageSource.getMessage(BUTTON_TEXT_KEY, null, LocaleContextHolder.getLocale());
     }
 }

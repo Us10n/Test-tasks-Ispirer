@@ -2,17 +2,15 @@ package by.stas.app.controller;
 
 import by.stas.app.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
 
 @RestController
-@RequestMapping("/main")
 public class MainController {
 
     private final ApplicationService applicationService;
@@ -22,15 +20,22 @@ public class MainController {
         this.applicationService = applicationService;
     }
 
-    @PostMapping
-    public String changeLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        return "post Hello";
+    @GetMapping
+    public ModelAndView loadIndex() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index.html");
+        return modelAndView;
     }
 
-    @GetMapping
+    @GetMapping("/main")
+    @ResponseBody
     public String changeStringGet(HttpServletRequest request, HttpServletResponse response, Locale locale) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        return applicationService.readString();
+        return applicationService.readLabelString();
+    }
+
+    @PostMapping("/main")
+    @ResponseBody
+    public String changeLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
+        return applicationService.readButtonString();
     }
 }

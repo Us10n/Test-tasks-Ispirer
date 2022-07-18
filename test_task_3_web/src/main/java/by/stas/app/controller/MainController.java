@@ -29,13 +29,13 @@ public class MainController {
 
     @GetMapping("/main")
     @ResponseBody
-    public String changeStringGet(HttpServletRequest request, HttpServletResponse response, Locale locale) {
+    public String changeStringGet() {
         return applicationService.readLabelString();
     }
 
     @PostMapping("/main")
     @ResponseBody
-    public String changeLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
+    public String changeLocale() {
         return applicationService.readButtonString();
     }
 }
